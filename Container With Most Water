@@ -1,0 +1,17 @@
+def maxArea(height):    
+    bsol = 0
+    i,j = 0, len(height) - 1
+
+    while j >= i:
+        if height[i] <= height[j]:
+            csol = height[i] * (j - i)
+            if csol > bsol:
+                bsol = csol
+            i += 1
+        else:
+            csol = height[j] * (j - i)
+            if csol > bsol:
+                bsol = csol
+            j -= 1
+
+    return bsol
